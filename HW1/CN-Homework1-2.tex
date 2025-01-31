@@ -1,0 +1,135 @@
+% ----------------------------------------------------------------
+% AMS-LaTeX Paper ************************************************
+% **** -----------------------------------------------------------
+\documentclass{amsart}
+\usepackage{graphicx}
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\A}{\mathcal{A}}
+% ----------------------------------------------------------------
+\begin{document}
+
+\title{MAD 6306 Complex Networks  - Spring 2024\\{\bf Homework 1}}%
+\author{Instructor: Jia Liu}%
+\date{}
+
+%\dedicatory{}%
+%\commby{}%
+% ----------------------------------------------------------------
+
+\maketitle
+% ----------------------------------------------------------------
+\begin{itemize}
+\item DUE on 002/02/2025 11:59pm C.T.
+\item You can write on the separate work sheet or type your quiz. ( Word or Latex or similar)
+\item If you use the handwriting, Solutions must be neat,clear and legible.
+\item If you need to scan you quiz, save it as a PDF file. Do not use jpeg, png, jpg etc. Do not submit more than one file.
+\item Please check your scanned file before submission. Make sure it is readable, correct order, properly oriented. Make sure it does include all pages.
+\item Please name your file as follows: $LastnameInitials-MAD6306hw1.pdf$.If your name is Alan David Roberts, file name is $RobertsAD-MAD6306hw1.pdf$.
+\item Try to keep the file size less than 4MB.
+\item You can resubmit the quiz if you want. Please specify which one is the one to be graded. Otherwise I will grade the most recent version.
+\item DO NOT EMAIL me the quiz. All quizzes are submitted via Canvas.
+\end{itemize}
+
+
+\clearpage
+\begin{enumerate}
+
+%---------------------------------------------------------------------------------
+% ##############################################################################
+% Problem 1
+% ##############################################################################
+\item Consider the following adjacency matrix of a network
+\begin{equation*}
+{A}  = \left\lbrack\begin{array}{ccccc}
+0 & 0 & 1& 1& 0 \\
+1 & 0 & 0& 0& 0 \\
+0 & 1 & 0& 1& 0 \\
+0 & 0 & 0& 0& 0 \\
+1& 0 & 1& 0& 0 \\
+\end{array}\right\rbrack
+\end{equation*}
+
+\begin{enumerate}
+\item Is the network directed or undirected? (Explain why).
+\item Draw the network.
+\end{enumerate}
+
+\vspace{5cm}
+
+% ##############################################################################
+% Problem 2
+% ##############################################################################
+\item Given the set of node V with $|V | = 6$ in which each node i is labelled by
+a natural number between 1 and 6,$ i = 1, 2, 3, 4, 5, 6$, consider the directed
+network$ G = (V, E)$ where each link from node j to node i indicates that
+j is a multiple of i.
+\begin{enumerate}
+\item Draw the network.
+\item Write down the adjacency matrix of the network.
+\end{enumerate}
+
+\clearpage
+
+% ##############################################################################
+% Problem 3
+% ##############################################################################
+\item Consider the following two networks: Notwork(a) is directed and Network (b) is undirected but bipartite. Find the following:
+\begin{figure}[h]
+\includegraphics[width=0.4\linewidth]{images/networka.PNG}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=0.4\linewidth]{images/networkb.PNG}
+\end{figure}
+\begin{enumerate}
+\item Find the adjacency matrix of network (a)
+\item Find the incidence matrix of network (b)
+\end{enumerate}
+
+\vspace{5cm}
+
+\clearpage
+% ##############################################################################
+% Problem 4
+% ##############################################################################
+\item Which word or words from the following list describe each of the five networks below: {\em directed, undirected, cyclic, acyclic, approximately acyclic, planar, approximately planar, tree, approximate tree}.
+\begin{enumerate}
+\item The internet, at the level of autonomous systems
+\item A food web
+\item The stem and branches of a plant
+\item A spider web
+\item A complete clique of four nodes
+\end{enumerate}
+
+\vspace{5cm}
+
+\clearpage
+% ##############################################################################
+% Problem 5
+% ##############################################################################
+\item A simple network consists of n nodes in a single component. What is the maximum possible number of edges it could have? What is the minimum possible number of edges it could have? 
+
+\end{enumerate}
+
+\end{document}
+% ----------------------------------------------------------------
