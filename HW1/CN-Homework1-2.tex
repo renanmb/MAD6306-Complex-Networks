@@ -3,6 +3,7 @@
 % **** -----------------------------------------------------------
 \documentclass{amsart}
 \usepackage{graphicx}
+\usepackage{tikz}
 % ----------------------------------------------------------------
 \vfuzz2pt % Don't report over-full v-boxes if over-edge is small
 \hfuzz2pt % Don't report over-full h-boxes if over-edge is small
@@ -74,8 +75,45 @@
 \item Draw the network.
 \end{enumerate}
 
-\vspace{5cm}
+\vspace{1cm}
 
+\textbf{ \larger[3]Solution} 
+\vspace{0.5cm}
+\begin{enumerate}
+% #######################
+% Problem 1-a
+% #######################
+    \item The nework is directed because the adjacency matrix is asymmetric.
+
+\vspace{1cm}
+% #######################
+% Problem 1-b
+% #######################
+    \item Network
+
+    \begin{tikzpicture}[node distance={15mm}, thick, main/.style = {draw, circle}] 
+        \node[main] (1) {$x_1$}; 
+        \node[main] (2) [above right of=1] {$x_2$}; 
+        \node[main] (3) [below right of=1] {$x_3$}; 
+        \node[main] (4) [above right of=3] {$x_4$}; 
+        \node[main] (5) [above right of=4] {$x_5$}; 
+        \node[main] (6) [below right of=4] {$x_6$}; 
+        \draw[->] (1) -- (2); 
+        \draw[->] (1) -- (3); 
+        \draw (1) to [out=135,in=90,looseness=1.5] (5); 
+        \draw (1) to [out=180,in=270,looseness=5] (1); 
+        \draw (2) -- (4); 
+        \draw (3) -- (4); 
+        \draw (5) -- (4); 
+        \draw[->] (5) to [out=315, in=315, looseness=2.5] (3); 
+        \draw[->] (6) -- node[midway, above right, sloped, pos=1] {+1} (4); 
+    \end{tikzpicture}
+
+\end{enumerate}
+
+\vspace{1cm}
+
+\clearpage
 % ##############################################################################
 % Problem 2
 % ##############################################################################
@@ -88,6 +126,52 @@ j is a multiple of i.
 \item Write down the adjacency matrix of the network.
 \end{enumerate}
 
+\vspace{0.5cm}
+\textbf{ \larger[3]Solution} 
+\vspace{0.5cm}
+
+\begin{enumerate}
+% #######################
+% Problem 2-a
+% #######################
+    \item network
+    
+    \begin{tikzpicture}[node distance={15mm}, thick, main/.style = {draw, circle}] 
+        \node[main] (1) {$x_1$}; 
+        \node[main] (2) [above right of=1] {$x_2$}; 
+        \node[main] (3) [below right of=1] {$x_3$}; 
+        \node[main] (4) [above right of=3] {$x_4$}; 
+        \node[main] (5) [above right of=4] {$x_5$}; 
+        \node[main] (6) [below right of=4] {$x_6$}; 
+        \draw[->] (1) -- (2); 
+        \draw[->] (1) -- (3); 
+        \draw (1) to [out=135,in=90,looseness=1.5] (5); 
+        \draw (1) to [out=180,in=270,looseness=5] (1); 
+        \draw (2) -- (4); 
+        \draw (3) -- (4); 
+        \draw (5) -- (4); 
+        \draw[->] (5) to [out=315, in=315, looseness=2.5] (3); 
+        \draw[->] (6) -- node[midway, above right, sloped, pos=1] {+1} (4); 
+    \end{tikzpicture}
+
+\vspace{0.5cm}
+% #######################
+% Problem 2-b
+% #######################
+    \item adjacency matrix
+    
+    \begin{equation*}
+        {A}  = \left\lbrack\begin{array}{cccccc}
+        1 & 1 & 1 & 1 & 1 & 1 \\
+        0 & 1 & 0 & 1 & 0 & 1 \\
+        0 & 0 & 1 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 1 \\
+        \end{array}\right\rbrack
+    \end{equation*}
+\end{enumerate}
+
 \clearpage
 
 % ##############################################################################
@@ -95,11 +179,11 @@ j is a multiple of i.
 % ##############################################################################
 \item Consider the following two networks: Notwork(a) is directed and Network (b) is undirected but bipartite. Find the following:
 \begin{figure}[h]
-\includegraphics[width=0.4\linewidth]{images/networka.PNG}
+\includegraphics[width=0.2\linewidth]{images/networka.PNG}
 \end{figure}
 
 \begin{figure}[h]
-\includegraphics[width=0.4\linewidth]{images/networkb.PNG}
+\includegraphics[width=0.2\linewidth]{images/networkb.PNG}
 \end{figure}
 \begin{enumerate}
 \item Find the adjacency matrix of network (a)
