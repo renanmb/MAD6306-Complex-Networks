@@ -65,17 +65,91 @@
 % #######################
 % Problem 1-a
 % #######################    
-\item A 3 regular graph must have an even number of nodes.\vspace{5cm}
+\item A 3 regular graph must have an even number of nodes.\vspace{0.2cm}
 
+A 3-regular graph is a graph in which each node is connected to exactly 3 other nodes.
 
+\vspace{0.2cm}
+
+Each edge connects two nodes, so the sum of all degrees of the nodes in the graph is 2m.
+
+\vspace{0.2cm}
+
+The total number of edges is 3n.
+
+\vspace{0.2cm}
+
+So it will alaways have an even number of nodes because it will be a multiple of 2:
+
+\vspace{0.2cm}
+
+$
+3n = 2m
+$
+
+\vspace{0.2cm}
+
+$
+n = \frac{2m}{3}
+$
+
+\vspace{0.2cm}
 
 % #######################
 % Problem 1-b
 % #######################
 \item The average degree of a tree is strictly less than 2.
 
+\vspace{0.2cm}
 
+$ \sum_{i=1}^{n} deg(v_i) = 2|E| $
 
+\vspace{0.2cm}
+
+Since the tree has \(n-1\) edges:
+
+\vspace{0.2cm}
+
+$ \sum_{i=1}^{n} deg(v_i) = 2(n-1) $
+
+\vspace{0.2cm}
+
+The average degree is the sum of the degrees divided by the number of vertices:
+
+\vspace{0.2cm}
+
+$ \text{Average degree} = \frac{\sum_{i=1}^{n} deg(v_i)}{n} $
+
+\vspace{0.2cm}
+
+Substituting the sum of degrees:
+
+\vspace{0.2cm}
+$ \text{Average degree} = \frac{2(n-1)}{n} $
+
+\vspace{0.2cm}
+
+$ \text{Average degree} = \frac{2n-2}{n} $
+
+\vspace{0.2cm}
+
+$ \text{Average degree} = 2 - \frac{2}{n} $
+
+\vspace{0.2cm}
+
+Since \(n\) is the number of vertices in a tree, \(n\ge 1\).
+
+\vspace{0.2cm}
+
+Therefore, \(\frac{2}{n}>0\).
+
+\vspace{0.2cm}
+
+Thus, \(2-\frac{2}{n}<2\).
+
+The average degree of a tree is \(2-\frac{2}{n}\), which is strictly less than \(2\).
+
+\vspace{0.2cm}
 \end{enumerate}
 
 \vspace{5cm}
@@ -93,15 +167,32 @@
 \includegraphics[width=0.3\linewidth]{images/stargraph.PNG}
 \end{figure}
 
+The adjacency matrix for this network will be symmetric:
 
+\begin{equation*}
+    {A}  = \left\lbrack\begin{array}{ccccc}
+    0 & 1 & 1 & ... & 1 \\
+    1 & 0 & 0 & ... & 0 \\
+    1 & 0 & 0 & ... & 0 \\
+    ... & 0 & 0 & ... & 0 \\
+    1 & 0 & 0 & ... & 0 \\
+    \end{array}\right\rbrack
+\end{equation*}
+
+\vspace{0.2cm}
 
 % #######################
 % Problem 2-b
 % #######################
 \item Find the largest eigenvalue of the adjacency matrix. 
+\vspace{0.2cm}
 
+The largest eigenvalue for a star network with $n-1$ nodes will be:
+\vspace{0.2cm}
 
+$\lambda_{max} = \sqrt{n-1}$
 
+\vspace{0.2cm}
 \end{enumerate}
 
 \clearpage
@@ -180,7 +271,7 @@ $
 % #######################
 % Problem 4-a
 % #######################
-\item What is the diameter of a fully connected network? \vspace{1cm}
+\item What is the diameter of a fully connected network? \vspace{0.2cm}
 
 The diameter of a fully connected network is always 1, because every node is directly connected to every other node.
 
@@ -189,7 +280,7 @@ The diameter of a fully connected network is always 1, because every node is dir
 % #######################
 % Problem 4-b
 % #######################
-\item What is the diameter of a star network? \vspace{1cm}
+\item What is the diameter of a star network? \vspace{0.2cm}
 
 In a star network, the diameter will always be 2. Any node can reach any other node by going through the central hub
 
@@ -316,6 +407,8 @@ We obtained the data from the OpenFlights dataset (https://openflights.org/data.
 
 This flight network is crucial for air traffic analysis, route optimization, transportation planning, and global connectivity studies.
 It can be used in pandemic modeling, economic impact studies, and supply chain logistics.
+
+The final size will depend on cleaning the dataset so the computer can calculate it in a reasonable time. 
 
 \vspace{0.5cm}
 
