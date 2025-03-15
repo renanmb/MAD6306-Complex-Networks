@@ -1,0 +1,127 @@
+% ----------------------------------------------------------------
+% AMS-LaTeX Paper ************************************************
+% **** -----------------------------------------------------------
+\documentclass{amsart}
+\usepackage{graphicx}
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\A}{\mathcal{A}}
+% ----------------------------------------------------------------
+\begin{document}
+
+\title{Complex Networks  - Spring 2024\\{\bf Homework 3}}%
+\author{Instructor: Jia Liu}%
+\date{}
+
+%\dedicatory{}%
+%\commby{}%
+% ----------------------------------------------------------------
+
+\maketitle
+% ----------------------------------------------------------------
+\begin{itemize}
+\item DUE on  03/23/2025 11:59pm C.T.
+\item You can write on the separate work sheet or type your quiz. ( Word or Latex or similar)
+\item If you use the handwriting, Solutions must be neat,clear and legible.
+\item If you need to scan you quiz, save it as a PDF file. Do not use jpeg, png, jpg etc. Do not submit more than one file.
+\item Please check your scanned file before submission. Make sure it is readable, correct order, properly oriented. Make sure it does include all pages.
+\item Please name your file as follows: $LastnameInitials-MAP5990quiz1.pdf$.If your name is Alan David Roberts, file name is $RobertsAD-MAP5990quiz1.pdf$.
+\item Try to keep the file size less than 4MB.
+\item You can resubmit the quiz if you want. Please specify which one is the one to be graded. Otherwise I will grade the most recent version.
+\item DO NOT EMAIL me the quiz. All quizzes are submitted via Canvas.
+\end{itemize}
+
+\clearpage
+\begin{enumerate}
+
+%---------------------------------------------------------------------------------
+
+\item Consider the adjacency matrix A of a directed network of size $N = 4$ given by
+\begin{equation*}
+{A}  = \left\lbrack\begin{array}{cccc}
+0 & 1 & 1& 0 \\
+0 & 0 & 0& 1 \\
+0 & 0 & 0& 1 \\
+0& 0 & 0& 0 \\
+\end{array}\right\rbrack
+\end{equation*}
+In the following we will indicate with ${\bf 1}$ the column vector with elements $i_i = 1$ for $i = 1, 2, \cdots, N$ and we will indicate with ${\bf I}$the identity matrix.
+\begin{enumerate}
+\item Draw the network
+\item Calculate the eigenvector centrality using its definition.
+\item Calculate the Kate centrality.
+\item Calculate the PageRank centrality. 
+\end{enumerate}
+\clearpage
+
+\item 
+Consider the adjacency matrix A of a directed network of size $N = 4$ given by
+\begin{equation*}
+{A}  = \left\lbrack\begin{array}{cccc}
+0 & 1 & 1& 0 \\
+1 & 0 & 0& 1 \\
+1& 0 & 0& 1 \\
+0& 1 & 1& 0 \\
+\end{array}\right\rbrack
+\end{equation*}
+In the following we will indicate with ${\bf 1}$ the column vector with elements $i_i = 1$ for $i = 1, 2, \cdots, N$ and we will indicate with ${\bf I}$the identity matrix.
+\begin{enumerate}
+\item Draw the network
+\item Calculate the degree centrality.
+\end{enumerate}
+\clearpage
+\item A network consists of n nodes in a ring, where n is odd. All the nodes have the same closeness centrality. What is it, as a function of n?
+
+\begin{figure}[h]
+\includegraphics[width=0.4\linewidth]{ring.png}
+\end{figure}
+
+\clearpage
+\item Study the real-world complex networks on Neuman's website $http://www-personal.umich.edu/~mejn/netdata/$, choose five real-world networks listed in the table and fill the table:
+
+ \begin{center}
+        \begin{tabular}{|c|c|c|c|c|}\hline
+        Network & directed or not  &node$ \#$	 & edge$ \#$ & community$ \# $ \\ \hline
+      Karate  & &  &  &   \\ \hline
+        Dolphin & &  &  &   \\ \hline
+       Les Miserable& &  &  &   \\ \hline
+       American College Football & &  &  &   \\ \hline
+         Power Grid & &  &  &   \\ \hline
+        \end{tabular}
+        \end{center}
+
+
+\vspace{5cm}
+
+
+\item Choose one network  from the previous question:
+\begin{enumerate}
+\item Use Gephi to plot the network. Make sure to use centrality and communities so that you can show the properties of the network.
+\item Use Gephi to find the largest two nodes with the betweenness centrality, degree centrality, and pagerank centrality. Use the table to report  your data.
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+\end{document}
+% ----------------------------------------------------------------
