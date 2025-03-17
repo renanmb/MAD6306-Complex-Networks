@@ -29,8 +29,8 @@
 \begin{document}
 
 \title{Complex Networks  - Spring 2024\\{\bf Homework 3}}%
-\author{Instructor: Jia Liu}%
-\date{}
+\author{Instructor: Jia Liu \\ Solution by: Renan Monteiro Barbosa}%
+\date{03/23/2025}
 
 %\dedicatory{}%
 %\commby{}%
@@ -54,72 +54,164 @@
 \begin{enumerate}
 
 %---------------------------------------------------------------------------------
-
-\item Consider the adjacency matrix A of a directed network of size $N = 4$ given by
+% ##############################################################################
+% Problem 1
+% ##############################################################################
+\item Consider the adjacency matrix A of a directed network of size $N = 4$ given by \vspace{0.2cm}
 \begin{equation*}
 {A}  = \left\lbrack\begin{array}{cccc}
-0 & 1 & 1& 0 \\
-0 & 0 & 0& 1 \\
-0 & 0 & 0& 1 \\
-0& 0 & 0& 0 \\
+0 & 1 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 \\
 \end{array}\right\rbrack
 \end{equation*}
-In the following we will indicate with ${\bf 1}$ the column vector with elements $i_i = 1$ for $i = 1, 2, \cdots, N$ and we will indicate with ${\bf I}$the identity matrix.
+
+\vspace{0.2cm}
+In the following we will indicate with ${\bf 1}$ the column vector with elements $i_i = 1$ for $i = 1, 2, \cdots, N$ and we will indicate with ${\bf I}$the identity matrix. \vspace{0.2cm}
 \begin{enumerate}
 \item Draw the network
 \item Calculate the eigenvector centrality using its definition.
 \item Calculate the Kate centrality.
 \item Calculate the PageRank centrality. 
 \end{enumerate}
+\vspace{1cm}
+
+\textbf{Answers:}
+
+\begin{enumerate}
+% #######################
+% Problem 1-a
+% ####################### 
+\item Draw the network. \vspace{0.2cm}
+
+\vspace{0.2cm}
+% #######################
+% Problem 1-b
+% ####################### 
+\item Calculate the eigenvector centrality using its definition. \vspace{0.2cm}
+
+\vspace{0.2cm}
+% #######################
+% Problem 1-c
+% ####################### 
+\item Calculate the Kate centrality. \vspace{0.2cm}
+
+\vspace{0.2cm}
+% #######################
+% Problem 1-d
+% ####################### 
+\item Calculate the PageRank centrality. \vspace{0.2cm}
+
+
+\end{enumerate}
 \clearpage
 
+% ##############################################################################
+% Problem 2
+% ##############################################################################
 \item 
-Consider the adjacency matrix A of a directed network of size $N = 4$ given by
+Consider the adjacency matrix A of a directed network of size $N = 4$ given by \vspace{0.2cm}
 \begin{equation*}
 {A}  = \left\lbrack\begin{array}{cccc}
-0 & 1 & 1& 0 \\
-1 & 0 & 0& 1 \\
-1& 0 & 0& 1 \\
-0& 1 & 1& 0 \\
+0 & 1 & 1 & 0 \\
+1 & 0 & 0 & 1 \\
+1 & 0 & 0 & 1 \\
+0 & 1 & 1 & 0 \\
 \end{array}\right\rbrack
 \end{equation*}
-In the following we will indicate with ${\bf 1}$ the column vector with elements $i_i = 1$ for $i = 1, 2, \cdots, N$ and we will indicate with ${\bf I}$the identity matrix.
+
+\vspace{0.2cm}
+In the following we will indicate with ${\bf 1}$ the column vector with elements $i_i = 1$ for $i = 1, 2, \cdots, N$ and we will indicate with ${\bf I}$the identity matrix. \vspace{0.2cm}
 \begin{enumerate}
 \item Draw the network
 \item Calculate the degree centrality.
 \end{enumerate}
+\vspace{1cm}
+
+\textbf{Answers:}
+
+\begin{enumerate}
+% #######################
+% Problem 2-a
+% ####################### 
+\item Draw the network \vspace{0.2cm}
+
+\vspace{0.2cm}
+% #######################
+% Problem 2-b
+% ####################### 
+\item Calculate the degree centrality. \vspace{0.2cm}
+
+\vspace{0.2cm}
+\end{enumerate}
 \clearpage
-\item A network consists of n nodes in a ring, where n is odd. All the nodes have the same closeness centrality. What is it, as a function of n?
+
+% ##############################################################################
+% Problem 3
+% ##############################################################################
+\item A network consists of n nodes in a ring, where n is odd. All the nodes have the same closeness centrality. What is it, as a function of n? \vspace{0.2cm}
+
 
 \begin{figure}[h]
-\includegraphics[width=0.4\linewidth]{ring.png}
+\includegraphics[width=0.2\linewidth]{images/hw3_figure1.PNG}
 \end{figure}
 
+\vspace{0.2cm}
+
+\textbf{Answers:}
+
 \clearpage
+% ##############################################################################
+% Problem 4
+% ##############################################################################
 \item Study the real-world complex networks on Neuman's website $http://www-personal.umich.edu/~mejn/netdata/$, choose five real-world networks listed in the table and fill the table:
 
- \begin{center}
-        \begin{tabular}{|c|c|c|c|c|}\hline
-        Network & directed or not  &node$ \#$	 & edge$ \#$ & community$ \# $ \\ \hline
-      Karate  & &  &  &   \\ \hline
-        Dolphin & &  &  &   \\ \hline
-       Les Miserable& &  &  &   \\ \hline
-       American College Football & &  &  &   \\ \hline
-         Power Grid & &  &  &   \\ \hline
-        \end{tabular}
-        \end{center}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}\hline
+Network & directed or not  &node$ \#$	 & edge$ \#$ & community$ \# $ \\ \hline
+Karate  & &  &  &   \\ \hline
+Dolphin & &  &  &   \\ \hline
+Les Miserable& &  &  &   \\ \hline
+American College Football & &  &  &   \\ \hline
+Power Grid & &  &  &   \\ \hline
+\end{tabular}
+\end{center}
 
+\vspace{0.2cm}
+
+\textbf{Answers:}
 
 \vspace{5cm}
+\clearpage
 
-
-\item Choose one network  from the previous question:
+% ##############################################################################
+% Problem 5
+% ##############################################################################
+\item Choose one network  from the previous question: \vspace{0.2cm}
 \begin{enumerate}
 \item Use Gephi to plot the network. Make sure to use centrality and communities so that you can show the properties of the network.
 \item Use Gephi to find the largest two nodes with the betweenness centrality, degree centrality, and pagerank centrality. Use the table to report  your data.
 \end{enumerate}
 
+\vspace{0.5cm}
 
+\textbf{Answers:}
+
+\begin{enumerate}
+% #######################
+% Problem 5-a
+% ####################### 
+\item Use Gephi to plot the network. \vspace{0.2cm}
+
+\vspace{0.2cm}
+% #######################
+% Problem 5-b
+% ####################### 
+\item Use Gephi to find the largest two nodes \vspace{0.2cm}
+
+\vspace{0.2cm}
+\end{enumerate}
 
 \end{enumerate}
 
