@@ -114,35 +114,48 @@ If all eigenvalues of a graph's adjacency matrix are zero, and the graph is not 
 % ####################### 
 \item Calculate the Katz centrality. \vspace{0.2cm}
 
-Considering alpha = 0.1
+Considering alpha $\alpha = 0.1$
 
-Katz centrality of 0: 0.5
+Katz centrality of 0(A): 0.5
 
-Katz centrality of 1: 0.5
+Katz centrality of 1(B): 0.5
 
-Katz centrality of 2: 0.5
+Katz centrality of 2(C): 0.5
 
-Katz centrality of 3: 0.5
+Katz centrality of 3(D): 0.5
 
 % Alpha should be strictly less than the inverse of the largest eigenvalue (lambda) of the adjacency matrix (1/λ). 
 
-There was a typo, I havent heard about a Kate centrality.
+There was a typo, I haven't heard about a Kate centrality.
 \vspace{0.2cm}
 % #######################
 % Problem 1-d
 % ####################### 
 \item Calculate the PageRank centrality. \vspace{0.2cm}
 
+With damping of 0.1 and 10000 iterations
+
+PageRank: [0.27225 0.23625 0.23625 0.225  ]
+
+With damping of 0.85 and 10000 iterations
+
+PageRank: [0.12834375 0.0534375  0.0534375  0.0375    ]
+
+Note:
+
+Because the graph is not strongly connected, the first node has a much higher pagerank.
+
+% To handle pages with no outgoing links (i.e., columns in the adjacency matrix that sum to 0), you need to ensure that such columns are handled properly. One common approach is to assign a uniform distribution to these pages, meaning every page should equally distribute its PageRank to all other pages. This can be done by replacing such columns with a uniform vector.
 
 % #######################
 % Problem 1- Observations
 % ####################### 
-Observation:
-The main difference betwenn Katz and PageRank, is that Katz propagates the full (discounted) weight to all successors oof a node, whereas PageRank (like eigen-vector centrality) splits the weight among all successors.
+% Observation:
+% The main difference betwenn Katz and PageRank, is that Katz propagates the full (discounted) weight to all successors of a node, whereas PageRank (like eigen-vector centrality) splits the weight among all successors.
 
-Katz Centrality: A node is important if it is highly linked or if it is linked from other important nodes.
+% Katz Centrality: A node is important if it is highly linked or if it is linked from other important nodes.
 
-PageRank: A node is important if it is highly linked or if it is linked from other important nodes that do not link many other pages.
+% PageRank: A node is important if it is highly linked or if it is linked from other important nodes that do not link many other pages.
 
 \end{enumerate}
 \clearpage
@@ -177,6 +190,21 @@ In the following we will indicate with ${\bf 1}$ the column vector with elements
 % ####################### 
 \item Draw the network \vspace{0.2cm}
 
+\begin{tikzpicture}[node distance={15mm}, thick, main/.style = {draw, circle}] 
+    \node[main] (1) {$A$}; 
+    \node[main] (2) [below right of=1] {$B$}; 
+    \node[main] (3) [above right of=1] {$C$}; 
+    \node[main] (4) [above right of=2] {$D$}; 
+    \draw[<-] (1) -- (2); 
+    \draw[<-] (1) -- (3);
+    \draw[<-] (2) -- (1);  
+    \draw[<-] (2) -- (4);
+    \draw[<-] (3) -- (1); 
+    \draw[<-] (3) -- (4);
+    \draw[<-] (4) -- (2); 
+    \draw[<-] (4) -- (3); 
+\end{tikzpicture}
+
 \vspace{0.2cm}
 % #######################
 % Problem 2-b
@@ -200,6 +228,27 @@ In the following we will indicate with ${\bf 1}$ the column vector with elements
 \vspace{0.2cm}
 
 \textbf{Answers:}
+
+Closeness Centrality:
+
+Closeness centrality measures how close a node is to all other nodes in the network, typically represented as the inverse of the average distance to all other nodes.
+
+Odd Number of Nodes:
+
+Since n is odd, the shortest path between any two nodes is either n/2 or (n-1)/2.
+
+Calculation:
+\begin{itemize}
+    \item The sum of the distances from a node to all other nodes is (n-1)/2 * (n/2) + (n-1)/2 * (n/2) = (n-1)/2 * n.
+    \item The average distance is (n-1)/2 * n / n = (n-1)/2.
+    \item Closeness centrality is the inverse of the average distance: 1 / ((n-1)/2) = 2 / (n-1).
+    \item Since n is odd, the shortest path between any two nodes is n/2 or (n-1)/2.
+    \item The sum of the distances from a node to all other nodes is (n-1)/2 * (n/2) + (n-1)/2 * (n/2) = (n-1)/2 * n.
+    \item The average distance is (n-1)/2 * n / n = (n-1)/2.
+    \item Closeness centrality is the inverse of the average distance: 1 / ((n-1)/2) = 2 / (n-1).
+    \item Therefore, the closeness centrality is 2 / (n + 1).
+\end{itemize}
+
 
 \clearpage
 % ##############################################################################
@@ -252,6 +301,13 @@ Power Grid & &  &  &   \\ \hline
 
 \vspace{0.2cm}
 \end{enumerate}
+
+% Options
+% Karate
+% Dolphin
+% Les Miserable
+% American College Football
+% Power Grid
 
 \end{enumerate}
 
