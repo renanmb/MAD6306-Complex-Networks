@@ -1,6 +1,6 @@
 import numpy as np
 
-def page_rank(adj_matrix, damping_factor=0.85, max_iterations=10000, tol=1e-6):
+def page_rank(adj_matrix, damping_factor=0.25, max_iterations=10000, tol=1e-6):
     """
     Calculate PageRank for a given adjacency matrix.
 

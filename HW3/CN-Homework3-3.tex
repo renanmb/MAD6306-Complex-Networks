@@ -103,12 +103,91 @@ In the following we will indicate with ${\bf 1}$ the column vector with elements
 % #######################
 % Problem 1-b
 % ####################### 
+% This is explained in the Module 6
 \item Calculate the eigenvector centrality using its definition. \vspace{0.2cm}
 
-The graph is not strongly connected. Therefore there might be several left eigenvectors associated with 
-$\lambda$, and some of their elements might be zero.
+% The graph is not strongly connected. Therefore there might be several left eigenvectors associated with $\lambda$, and some of their elements might be zero.
 
-If all eigenvalues of a graph's adjacency matrix are zero, and the graph is not strongly connected, then the eigenvector centrality scores for all nodes will likely be zero, as the eigenvector associated with the largest eigenvalue (which eigenvector centrality relies on) will be a zero vector. 
+If all eigenvalues of a graph's adjacency matrix are zero, and the graph is not strongly connected, then the eigenvector centrality scores for all nodes will be zero, as the eigenvector associated with the largest eigenvalue will be a zero vector. \vspace{0.2cm}
+
+By the iterative method: \vspace{0.2cm}
+
+$X^{\left(0\right)} = \begin{pmatrix} \frac{1}{N} \\ \frac{1}{N} \\ \frac{1}{N} \\ \frac{1}{N} \end{pmatrix} = \begin{pmatrix} \frac{1}{4} \\ \frac{1}{4} \\ \frac{1}{4} \\ \frac{1}{4} \end{pmatrix}$ \vspace{0.2cm}
+
+$X^{\left(n\right)} = A^{\left(n\right)}X^{\left(0\right)}$ \vspace{0.2cm}
+
+$X^{\left(1\right)} = A^{\left(n\right)}X^{\left(0\right)}$ \vspace{0.2cm}
+
+\begin{equation*}
+    X^{\left(1\right)}  = \left\lbrack\begin{array}{cccc}
+    0 & 1 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 \\
+    \end{array}\right\rbrack
+    \begin{pmatrix} 
+        \frac{1}{4} \\ 
+        \frac{1}{4} \\ 
+        \frac{1}{4} \\ 
+        \frac{1}{4}
+    \end{pmatrix}
+    =
+    \begin{pmatrix} 
+        \frac{2}{4} \\ 
+        \frac{1}{4} \\ 
+        \frac{1}{4} \\ 
+        0
+    \end{pmatrix}
+\end{equation*}
+
+$X^{\left(2\right)} = A^{\left(n\right)}X^{\left(1\right)}$ \vspace{0.2cm}
+
+\begin{equation*}
+    X^{\left(2\right)}  = \left\lbrack\begin{array}{cccc}
+    0 & 1 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 \\
+    \end{array}\right\rbrack
+    \begin{pmatrix} 
+        \frac{2}{4} \\ 
+        \frac{1}{4} \\ 
+        \frac{1}{4} \\ 
+        0
+    \end{pmatrix}
+    =
+    \begin{pmatrix} 
+        \frac{2}{4} \\ 
+        0 \\ 
+        0 \\ 
+        0
+    \end{pmatrix}
+\end{equation*}
+
+$X^{\left(3\right)} = A^{\left(n\right)}X^{\left(2\right)}$ \vspace{0.2cm}
+
+\begin{equation*}
+    X^{\left(3\right)}  = \left\lbrack\begin{array}{cccc}
+    0 & 1 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 \\
+    \end{array}\right\rbrack
+    \begin{pmatrix} 
+        \frac{2}{4} \\ 
+        0 \\ 
+        0 \\ 
+        0
+    \end{pmatrix}
+    =
+    \begin{pmatrix} 
+        0 \\ 
+        0 \\ 
+        0 \\ 
+        0
+    \end{pmatrix}
+\end{equation*}
+
 
 \vspace{0.2cm}
 % #######################
@@ -116,17 +195,89 @@ If all eigenvalues of a graph's adjacency matrix are zero, and the graph is not 
 % ####################### 
 \item Calculate the Katz centrality. \vspace{0.2cm}
 
-Considering alpha $\alpha = 0.1$
+Considering alpha $\alpha = 0.1 and \beta = 1$ \vspace{0.2cm}
 
-Katz centrality of 0(A): 0.5
+$X = \beta \left(I - \alpha A\right)^{-1}$ \vspace{0.2cm}
 
-Katz centrality of 1(B): 0.5
 
-Katz centrality of 2(C): 0.5
+\begin{equation*}
+    {X}  = 
+    \left(
+    \left\lbrack\begin{array}{cccc}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    \end{array}\right\rbrack
+    - \alpha
+    \left\lbrack\begin{array}{cccc}
+    0 & 1 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 \\
+    \end{array}\right\rbrack
+    \right)^{-1}
+\end{equation*}
 
-Katz centrality of 3(D): 0.5
+\begin{equation*}
+    {X}  = 
+    \left(
+    \left\lbrack\begin{array}{cccc}
+    1 & -0.1 & -0.1 & 0 \\
+    0 & 1 & 0 & -0.1 \\
+    0 & 0 & 1 & -0.1 \\
+    0 & 0 & 0 & 1 \\
+    \end{array}\right\rbrack
+    \right)^{-1}
+    \begin{pmatrix} 
+        1 \\ 
+        1 \\ 
+        1 \\ 
+        1
+    \end{pmatrix}
+\end{equation*}
+
+\begin{equation*}
+    {X}  = 
+    \left(
+    \left\lbrack\begin{array}{cccc}
+    1 & -0.1 & -0.1 & 0 \\
+    0 & 1 & 0 & -0.1 \\
+    0 & 0 & 1 & -0.1 \\
+    0 & 0 & 0 & 1 \\
+    \end{array}\right\rbrack
+    \right)^{-1}
+    \begin{pmatrix} 
+        1 \\ 
+        1 \\ 
+        1 \\ 
+        1
+    \end{pmatrix}
+\end{equation*}
+
+\begin{equation*}
+    {X}  = 
+    \begin{pmatrix} 
+        1.22 \\ 
+        1.1 \\ 
+        1.1 \\ 
+        1
+    \end{pmatrix}
+\end{equation*}
+
+Using Python code obtained the following: \vspace{0.2cm}
+
+Katz centrality of 0(A): 0.5 \vspace{0.2cm}
+
+Katz centrality of 1(B): 0.5 \vspace{0.2cm}
+
+Katz centrality of 2(C): 0.5 \vspace{0.2cm}
+
+Katz centrality of 3(D): 0.5 \vspace{0.2cm}
 
 % Alpha should be strictly less than the inverse of the largest eigenvalue (lambda) of the adjacency matrix (1/λ). 
+
+\vspace{0.5cm}
 
 There was a typo, I haven't heard about a Kate centrality.
 \vspace{0.2cm}
@@ -135,17 +286,17 @@ There was a typo, I haven't heard about a Kate centrality.
 % ####################### 
 \item Calculate the PageRank centrality. \vspace{0.2cm}
 
-With damping of 0.1 and 10000 iterations
+With damping of 0.1 and 10000 iterations \vspace{0.2cm}
 
 PageRank: [0.27225 0.23625 0.23625 0.225  ]
 
-With damping of 0.85 and 10000 iterations
+With damping of 0.85 and 10000 iterations \vspace{0.2cm}
 
 PageRank: [0.12834375 0.0534375  0.0534375  0.0375    ]
 
-Note:
+% Note: \vspace{0.2cm}
 
-Because the graph is not strongly connected, the first node has a much higher pagerank.
+% Because the graph is not strongly connected, the first node has a much higher pagerank. \vspace{0.2cm}
 
 % To handle pages with no outgoing links (i.e., columns in the adjacency matrix that sum to 0), you need to ensure that such columns are handled properly. One common approach is to assign a uniform distribution to these pages, meaning every page should equally distribute its PageRank to all other pages. This can be done by replacing such columns with a uniform vector.
 
@@ -213,7 +364,21 @@ In the following we will indicate with ${\bf 1}$ the column vector with elements
 % ####################### 
 \item Calculate the degree centrality. \vspace{0.2cm}
 
-Degree Centrality
+Degree Centrality \vspace{0.2cm}
+
+$\frac{2}{3}$ \vspace{0.2cm}
+
+\begin{equation*}
+    {X}  = 
+    \begin{pmatrix} 
+        \frac{2}{3} \\ 
+        \frac{2}{3} \\ 
+        \frac{2}{3} \\ 
+        \frac{2}{3}
+    \end{pmatrix}
+\end{equation*} \vspace{0.2cm}
+
+The python code output: \vspace{0.2cm}
 
 {0: 0.6666666666666666, 1: 0.6666666666666666, 2: 0.6666666666666666, 3: 0.6666666666666666}
 
@@ -265,11 +430,11 @@ Calculation: \vspace{0.2cm}
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|}\hline
 Network                   & directed or not  & node$ \#$ & edge$ \#$ & community$ \# $ \\ \hline
-Karate                    & directed         &    34     &    78     &        4        \\ \hline
-Dolphin                   & un-directed      &    62     &    159    &        5        \\ \hline
-Les Miserable             & directed         &    77     &    254    &        6        \\ \hline
-American College Football & un-directed      &    115    &    613    &        9        \\ \hline
-Power Grid                & un-directed      &    4941   &    6594   &        37       \\ \hline
+Karate                    &                  &           &           &                 \\ \hline
+Dolphin                   &                  &           &           &                 \\ \hline
+Les Miserable             &                  &           &           &                 \\ \hline
+American College Football &                  &           &           &                 \\ \hline
+Power Grid                &                  &           &           &                 \\ \hline
 \end{tabular}
 \end{center}
 
@@ -277,6 +442,16 @@ Power Grid                & un-directed      &    4941   &    6594   &        37
 
 \textbf{Answers:}
 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}\hline
+Network                   & directed or not  & node$ \#$ & edge$ \#$ & community$ \# $ \\ \hline
+Karate                    & directed         &    34     &    78     &        4        \\ \hline
+Dolphin                   & un-directed      &    62     &    159    &        5        \\ \hline
+Les Miserable             & directed         &    77     &    254    &        6        \\ \hline
+American College Football & un-directed      &    115    &    613    &        9        \\ \hline
+Power Grid                & un-directed      &    4941   &    6594   &        37       \\ \hline
+\end{tabular}
+\end{center}
 
 % Karate - Easier, much smaller
 % Zachary's karate club: social network of friendships between 34 members of a karate club at a US university in the 1970s. Please cite W. W. Zachary, An information flow model for conflict and fission in small groups, Journal of Anthropological Research 33, 452-473 (1977).
