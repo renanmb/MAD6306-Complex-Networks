@@ -31,7 +31,7 @@
 
 \title{Complex Networks  - Spring 2024\\{\bf Homework 3}}%
 \author{Instructor: Jia Liu \\ Solution by: Renan Monteiro Barbosa}%
-\date{03/23/2025}
+\date{03/31/2025}
 
 %\dedicatory{}%
 %\commby{}%
@@ -40,7 +40,7 @@
 \maketitle
 % ----------------------------------------------------------------
 \begin{itemize}
-\item DUE on  03/23/2025 11:59pm C.T.
+\item DUE on  03/30/2025 11:59pm C.T.
 \item You can write on the separate work sheet or type your quiz. ( Word or Latex or similar)
 \item If you use the handwriting, Solutions must be neat,clear and legible.
 \item If you need to scan you quiz, save it as a PDF file. Do not use jpeg, png, jpg etc. Do not submit more than one file.
@@ -265,7 +265,9 @@ $X = \beta \left(I - \alpha A\right)^{-1}$ \vspace{0.2cm}
     \end{pmatrix}
 \end{equation*}
 
-Using Python code obtained the following: \vspace{0.2cm}
+\textbf{Notes:}
+
+Using Python code obtained a different result: \vspace{0.2cm}
 
 Katz centrality of 0(A): 0.5 \vspace{0.2cm}
 
@@ -286,9 +288,17 @@ There was a typo, I haven't heard about a Kate centrality.
 % ####################### 
 \item Calculate the PageRank centrality. \vspace{0.2cm}
 
-With damping of 0.1 and 10000 iterations \vspace{0.2cm}
+$X = \beta \left(I - \alpha AD^{-1}\right)^{-1} = \beta \sum_{n=0}^{\infty} \alpha^{n}\left(AD^{-1}\right)^{n}I$ \vspace{0.2cm}
+
+
+Solution with python code: \vspace{0.2cm}
+
+
+With damping of $\alpha = 0.1$, $\beta = 1$ and 10000 iterations \vspace{0.2cm}
 
 PageRank: [0.27225 0.23625 0.23625 0.225  ]
+
+\vspace{0.2cm}
 
 With damping of 0.85 and 10000 iterations \vspace{0.2cm}
 
@@ -364,9 +374,15 @@ In the following we will indicate with ${\bf 1}$ the column vector with elements
 % ####################### 
 \item Calculate the degree centrality. \vspace{0.2cm}
 
-Degree Centrality \vspace{0.2cm}
+Degree Centrality, where n=4 \vspace{0.2cm}
 
-$\frac{2}{3}$ \vspace{0.2cm}
+$C_{D}^{'}(i) = \frac{d_{0}(i)}{n-1}$
+
+\vspace{0.2cm}
+
+We can observe that each node has the same degree centrality: \vspace{0.2cm}
+
+$C_{D}^{'}(i) = \frac{2}{3}$ \vspace{0.2cm}
 
 \begin{equation*}
     {X}  = 
@@ -404,20 +420,25 @@ The python code output: \vspace{0.2cm}
 
 \vspace{0.2cm}
 
-Since n is odd, the shortest path between any two nodes is either $\frac{n}{2}$ or $\frac{n-1}{2}$. Therefore, the closeness centrality is $\frac{2}{n+1}$.
+Since n is odd, the shortest path between any two nodes is $\frac{n-1}{2}$. Therefore, the closeness centrality is $\frac{4n}{n^2-1}$.
+
+% Wrong
+% $\frac{2}{n+1}$
 
 \vspace{0.2cm}
 
 Calculation: \vspace{0.2cm}
 \begin{itemize}
-    \item The sum of the distances from a node to all other nodes is $\frac{(n-1)}{2} \cdot \frac{n}{2} + \frac{(n-1)}{2} \cdot \frac{n}{2} = \frac{(n-1)}{2} \cdot n$.
-    \item The average distance is $\frac{(n-1)}{2} \cdot \frac{(n)}{n} = \frac{(n-1)}{2}$.
-    \item Closeness centrality is the inverse of the average distance: $\frac{1}{\frac{n-1}{2}} = \frac{2}{n-1}$.
-    \item Since n is odd, the shortest path between any two nodes is $\frac{n}{2}$ or $\frac{n-1}{2}$.
-    \item The sum of the distances from a node to all other nodes is $\frac{(n-1)}{2} \cdot \frac{n}{2} + \frac{n-1}{2} \cdot \frac{n}{2} = \frac{n-1}{2} \cdot n$.
-    \item The average distance is $\frac{n-1}{2} \cdot \frac{n}{n} = \frac{n-1}{2}$.
-    \item Closeness centrality is the inverse of the average distance: $\frac{1}{\frac{n-1}{2}} = \frac{2}{n-1}$.
-    \item Therefore, the closeness centrality is $\frac{2}{n+1}$.
+    \item $C(x) = \frac{n}{\sum_{y}^{}d(x,y)}$, where $d(x,y)$ is the distance between node i and j (or x and y).
+    \item \item $C(x) = \frac{n}{\frac{n-1}{2}\frac{n+1}{2}} = \frac{4n}{n^2-1}$
+    % \item The sum of the distances from a node to all other nodes is $\frac{(n-1)}{2} \cdot \frac{n}{2} + \frac{(n-1)}{2} \cdot \frac{n}{2} = \frac{(n-1)}{2} \cdot n$.
+    % \item The average distance is $\frac{(n-1)}{2} \cdot \frac{(n)}{n} = \frac{(n-1)}{2}$.
+    % \item Closeness centrality is the inverse of the average distance: $\frac{1}{\frac{n-1}{2}} = \frac{2}{n-1}$.
+    % \item Since n is odd, the shortest path between any two nodes is $\frac{n}{2}$ or $\frac{n-1}{2}$.
+    % \item The sum of the distances from a node to all other nodes is $\frac{(n-1)}{2} \cdot \frac{n}{2} + \frac{n-1}{2} \cdot \frac{n}{2} = \frac{n-1}{2} \cdot n$.
+    % \item The average distance is $\frac{n-1}{2} \cdot \frac{n}{n} = \frac{n-1}{2}$.
+    % \item Closeness centrality is the inverse of the average distance: $\frac{1}{\frac{n-1}{2}} = \frac{2}{n-1}$.
+    % \item Therefore, the closeness centrality is $\frac{2}{n+1}$.
 \end{itemize}
 
 
@@ -486,19 +507,64 @@ Power Grid                & un-directed      &    4941   &    6594   &        37
 
 \textbf{Answers:}
 
+I choose the Karate Network. It is the smallest and is easier to work with Gephi. \vspace{0.2cm}
+
+
 \begin{enumerate}
 % #######################
 % Problem 5-a
 % ####################### 
-\item Use Gephi to plot the network. \vspace{0.2cm}
+\item Use Gephi to plot the network. 
+% \vspace{0.2cm}
 
-\vspace{0.2cm}
+\begin{figure}[h]
+\includegraphics[width=1.0\linewidth]{images/hw3_figure2.PNG}
+\end{figure}
+
+\clearpage
+
+% \vspace{0.2cm}
 % #######################
 % Problem 5-b
 % ####################### 
-\item Use Gephi to find the largest two nodes \vspace{0.2cm}
+\item Use Gephi to find the largest two nodes. \vspace{0.2cm}
+
+\textbf{Betweenness Centrality} \vspace{0.2cm}
+
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+Label & Betweenness Centrality \\ \hline
+3     &       8.833333         \\ \hline
+32    &       5.083333         \\ \hline
+\end{tabular}
+\end{center}
 
 \vspace{0.2cm}
+
+\textbf{Degree Centrality} \vspace{0.2cm}
+
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+Label & Degree Centrality \\ \hline
+34    &       17          \\ \hline
+1     &       16          \\ \hline
+\end{tabular}
+\end{center}
+
+\vspace{0.2cm}
+
+\textbf{Pagerank Centrality} \vspace{0.2cm}
+
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+Label & Pagerank Centrality \\ \hline
+1     &       0.246433      \\ \hline
+2     &       0.087712      \\ \hline
+\end{tabular}
+\end{center}
+
+\vspace{0.2cm}
+
 \end{enumerate}
 
 % Options
