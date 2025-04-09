@@ -1,0 +1,76 @@
+% ----------------------------------------------------------------
+% AMS-LaTeX Paper ************************************************
+% **** -----------------------------------------------------------
+\documentclass{amsart}
+\usepackage{graphicx}
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\A}{\mathcal{A}}
+% ----------------------------------------------------------------
+\begin{document}
+
+\title{Complex Networks  - Spring 2024\\{\bf Homework 4}}%
+\author{Instructor: Jia Liu}%
+\date{}
+
+%\dedicatory{}%
+%\commby{}%
+% ----------------------------------------------------------------
+
+\maketitle
+% ----------------------------------------------------------------
+\begin{itemize}
+\item DUE on  04/20/2025 11:59pm C.T.
+\item This is a group porject. Each group only needs to submit one file.
+\item All files should be typed. 
+\item Please name your file as follows: $LastnameInitials-MAP6306quiz1.pdf$.If your name is  David Roberts, file name is $RobertsAD-MAP6306quiz1.pdf$.
+\item Try to keep the file size less than 4MB.
+\item You can resubmit the quiz if you want. Please specify which one is the one to be graded. Otherwise I will grade the most recent version.
+\item DO NOT EMAIL me the quiz. All quizzes are submitted via Canvas.
+\end{itemize}
+
+
+\clearpage
+\begin{enumerate}
+
+%---------------------------------------------------------------------------------
+
+
+\item Consider following data sets (you can download the data here https://websites.umich.edu/~mejn/netdata/).
+\begin{enumerate}
+\item Zachary's karate club
+\item American College football
+\item Power grid
+\end{enumerate}
+
+\vspace{2cm}
+
+Report the questions below for each network:
+\begin{enumerate}
+\item Use Gephi to plot the network. Make sure to use centrality and communities so that you can show the properties of the network.
+\item Use Gephi to find how many communities this network has. 
+\item What is the modularity for the community detection?
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
+% ----------------------------------------------------------------
