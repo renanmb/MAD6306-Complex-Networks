@@ -171,240 +171,63 @@ Let denote the smallest possible desnity of ca cut in G. Any cut with density is
 
 % #########################################################################################
 % #########################################################################################
-% Slide 5 - Define BG
+% Slide 5 - Example in Julia
 % #########################################################################################
 % #########################################################################################
 
-\section{Define BG}
+\section{Example in Julia}
 \begin{frame}
-\frametitle{\textbf{Define BG} }
+\frametitle{\textbf{Example in Julia} }
 
-Define the matrix $B_{G}$, the \underline{"directed" node-edge incidence matrix of G}.
-
-\begin{tikzpicture}[node distance={15mm}, thick, main/.style = {draw, circle}] 
-    \node[main] (1) {$1$}; 
-    \node[main] (2) [right of=1] {$2$}; 
-    \node[main] (3) [right of=2] {$3$}; 
-    \node[main] (4) [below right of=1] {$4$}; 
-    \draw[->] (1) -- (2); 
-    \draw[->] (1) -- (4);  
-    \draw[->] (2) -- (3); 
-    \draw[->] (2) -- (4); 
-\end{tikzpicture}
-
-pick a direction for each edge
-
-% TODO - figure out how to draw Arrows connecting stuff.
-
-rows indexed by nodes
-
-columns indexed by edges of G
-
-\[
-    B_{G} = 
-    \begin{blockarray}{ccccc}
-        & 12  & 14 & 23 & 24 \\
-    \begin{block}{c[cccc]}
-    1   & 1  & 1  & 0  & 0  \\
-    2   & -1 & 0  & 1  & 1  \\
-    3   & 0  & 0  & -1 & 0  \\
-    4   & 0  & -1 & 0  & -1 \\
-    \end{block}
-    \end{blockarray}\vspace*{-1.25\baselineskip}
-\]
-
-In the column indexed by the directed edge ij, we put 1 in row i and -1 in row j.
-
-$L_{G} = B^{T}B$
+Need to figure out how to make code look pretty in Latex
 
 \end{frame}
 
 % #########################################################################################
 % #########################################################################################
-% Slide 6 - Define BG
+% Slide 6 - Exploring
 % #########################################################################################
 % #########################################################################################
 
-\section{Define BG}
+\section{Exploring}
 \begin{frame}
-\frametitle{\textbf{Define BG} }
-
-$L_{G} = B_{G} \cdot B_{G}^{T}$
-
-% TODO - Add notes on the bottom of each Matrix
+\frametitle{\textbf{Exploring} }
 
 \begin{equation*}
-    \left\lbrack\begin{array}{cccc}
-        1  & 1  & 0  & 0  \\
-        -1 & 0  & 1  & 1  \\
-        0  & 0  & -1 & 0  \\
-        0  & -1 & 0  & -1 \\
-    \end{array}\right\rbrack
-    \cdot
-    \left\lbrack\begin{array}{cccc}
-        1 & -1 & 0  & 0  \\
-        1 &  0 & 0  & -1  \\
-        0 &  1 & -1 & 0  \\
-        0 &  1 & 0  & -1 \\
-    \end{array}\right\rbrack
-    =
-    \left\lbrack\begin{array}{cccc}
-        2  & -1 & 0  & -1 \\
-        -1 &  3 & -1 & -1 \\
-        0  & -1 & 1  & 0  \\
-        -1 & -1 & 0  & 2  \\
-    \end{array}\right\rbrack
+    Q\left(\vec{x}\right) = n \cdot \frac{ \sum_{\left\{i,j\right\} \in E\left(G\right) } \left(x_{i}-x_{j}\right)^2}{ \sum_{1 \leq i < j \leq n} \left(x_{i}-x_{j}\right)^2}
 \end{equation*}
 
-If you get $i^{th}$ row and $i^{th}$ column, $1^2$ or $(-1)^2$ for every edge incident to i. So the sum $d_{i}$.
+Let $A \subseteq V$, 
 
-$i^{th}$ row and $j^{th}$ column (if $i \neq j$ ) if ij is on edge, you will get $1(-1) = -1$
-
-Therefore, $L_{G}$ is PSD.
-
-% \[
-%     B_{G} \cdot B_{G}^{T} = 
-%     \begin{blockarray}{ccccc}
-%         & 12  & 14 & 23 & 24 \\
-%     \begin{block}{c[cccc]}
-%     1   & 1  & 1  & 0  & 0  \\
-%     2   & -1 & 0  & 1  & 1  \\
-%     3   & 0  & 0  & -1 & 0  \\
-%     4   & 0  & -1 & 0  & -1 \\
-%     \end{block}
-%     \end{blockarray}\vspace*{-1.25\baselineskip}
-% \]
-
+$A = \left\{4,5,6,7,8\right\}$, $\vec{C}_A = 
+\begin{pmatrix} 
+    0 \\ 
+    0 \\ 
+    0 \\ 
+    1 \\
+    1 \\
+    1 \\
+    1 \\
+    0 \\
+    0
+\end{pmatrix}
+$
 
 \end{frame}
 
 % #########################################################################################
 % #########################################################################################
-% Slide 7 - Lemma
+% Slide 6 - Exploring
 % #########################################################################################
 % #########################################################################################
 
-\section{Lemma}
+\section{Exploring}
 \begin{frame}
-\frametitle{\textbf{Lemma} }
-Lemma: \vspace{0.2 cm}
+\frametitle{\textbf{Exploring} }
 
-If G is a graph, the Laplacian $L_{G}$ is PSD and its eigenvalues are:
-
-\begin{equation*}
-    0 = \lambda_{1} \leq \lambda_{2} \leq \lambda_{3} \leq \cdots \leq \lambda_{n}
-\end{equation*}
-
-and $\vec{1}$ is an eigenvector of $L_{G}$ with eigenvalue 0.
-
-Since $L_{G}$ is PSD, the $\vec{x}^{T}L_{G}\vec{x} \geq 0$, $\forall \vec{x} \in \mathbb{R}^n$
+Need to add a visual representation demonstrating the Graph Laplacian and the example in code. About the information we can extract from the Graph Laplacian.
 
 \end{frame}
-
-% #########################################################################################
-% #########################################################################################
-% Slide 8 - Lemma
-% #########################################################################################
-% #########################################################################################
-
-\section{Lemma}
-\begin{frame}
-\frametitle{\textbf{Lemma} }
-PwP: \vspace{0.2 cm}
-
-Let $G=\left([n], E\right)$ be the graph with vertices [n] and edge set E. If $\vec{x}=\left(x_1, \cdots , x_n\right)^T$. \vspace{0.2 cm}
-
-\begin{equation*}
-    \vec{x}^{T}L_{G}\vec{x} = \sum_{\left\{i,j\right\} \in E}\left(x_{i}-x_{j}\right)^2
-\end{equation*}
-
-Proof \vspace{0.2 cm}
-
-We know that $L_{G}=B_{G}B_{G}^{T}$. So $\vec{x}^{T}L_{G}\vec{x} = \vec{x}^{T}B_{G}B_{G}^{T}\vec{x}$. \vspace{0.2 cm}
-
-Lets understand $\vec{x}^{T}B_{G}$.\vspace{0.2 cm}
-
-% TODO - Add the vector dot product
-
-So the entries of $\vec{x}^{T}B_{G}$ are all $x_{i}-x{j}$ when ij is an edge of G.
-
-\end{frame}
-
-% #########################################################################################
-% #########################################################################################
-% Slide 9 - Lemma
-% #########################################################################################
-% #########################################################################################
-
-\section{Lemma}
-\begin{frame}
-\frametitle{\textbf{Lemma} }
-PwP: \vspace{0.2 cm}
-
-So $\vec{x}^{T}L_{G}\vec{x} = \left(\vec{x}^{T}B_{G}\right) \cdot \left(B_{G}^{T}\vec{x}\right) = \sum_{\left\{i,j\right\} \in E}\left(x_{i}-x_{j}\right)^2$. \vspace{0.2 cm}
-
-Do this for the example:
-
-\end{frame}
-
-% #########################################################################################
-% #########################################################################################
-% Slide 10 - Connectivity
-% #########################################################################################
-% #########################################################################################
-
-\section{Connectivity}
-\begin{frame}
-\frametitle{\textbf{Connectivity} }
-Definition: \vspace{0.2 cm}
-
-A Graph is conencted if there is a way to walk from any vertex to any other vertex along the edges of G.
-
-%  TODO - Draw a non-connected Graph
-
-Theorem:
-
-G is connected if and only if $\lambda_2 > 0$.
-
-Proof:
-
-If G is not connected the Graph Laplacian will look like this:
-
-%  TODO - Draw the graph laplacian of a non conencted graph.
-
-\end{frame}
-
-% #########################################################################################
-% #########################################################################################
-% Slide 11 - Connectivity
-% #########################################################################################
-% #########################################################################################
-
-\section{Connectivity}
-\begin{frame}
-\frametitle{\textbf{Connectivity} }
-We sort of proved if G is not connected, then $\lambda_2 = 0$. (if G has k components, $\lambda_1 = \lambda_2 = \cdots \lambda_4 = 0$) \vspace{0.2 cm}
-
-We still need t show that if G is connected, $\lambda_2 > 0$.
-
-For a symmetric matrix, $AM(\lambda) = GM(\lambda)$ for an eigenvalues.
-
-So we need to show $GM(0)=1$. Let $\vec{u}$ be an eigenvector with eigenvalue of 0. Then $L_{G}\vec{u}=\vec{0}$.
-
-\begin{equation*}
-    0 = \vec{u}^{T}L_{G}\vec{u} = \sum_{\left\{i,j\right\} \in E}\left(u_{i}-u_{j}\right)^2
-\end{equation*}
-
-If $u_1 = C$ and {1,k} is an edge, the $u_k = c$. for all edge $ij \in E$.
-
-Similarly if kj is an edge $u_j=c$. Since G is connected $\vec{u} = c \vec{1}$. 
-
-AM, algebraic multiplicity. \vspace{0.2 cm}
-
-GM, geometric multiplicity. \vspace{0.2 cm}
-
-\end{frame}
-
 
 % #########################################################################################
 % #########################################################################################
@@ -416,95 +239,12 @@ GM, geometric multiplicity. \vspace{0.2 cm}
 \begin{frame}
 \frametitle{Conclusion}
 
-Slight Generalization: \vspace{0.2 cm}
+here we go: \vspace{0.2 cm}
 
-The number of times 0 is on eigenvalue of $L_{G}$ counts the number of conencted components of G.
 
-Fact: \vspace{0.2 cm}
-
-The second eigenvalue $\lambda_2$ is called the spectra gap or the Fiedler value of G.
 
 \end{frame}
 
-% #########################################################################################
-% #########################################################################################
-% Slide XX - Testing Latex stuff
-% #########################################################################################
-% #########################################################################################
-
-\section{Testing Latex stuff}
-\begin{frame}
-\frametitle{\textbf{Testing Latex stuff} }
-
-\[
-    \mathbf{\alpha} = 
-      \bordermatrix{ & \bar{f_1} & \bar{f_2} & \bar{f_3} \cr
-        k_1 & 0 & 0 & 1 \cr
-        k_2 & 1 & 0 & 0 \cr
-        k_3 & 0 & 0 & 1 \cr
-        k_4 & 0 & 1 & 0 } \qquad
-\]
-
-\begin{equation*}
-    \left\lbrack\begin{array}{cccc}
-        2  & -1 & 0  & -1 \\
-        -1 & 3  & -1 & -1 \\
-        0  & -1 & 1  & 0  \\
-        -1 & -1 & 0  & 2  \\
-    \end{array}\right\rbrack
-\end{equation*}
-
-\end{frame}
-
-% #########################################################################################
-% #########################################################################################
-% Slide XX - Testing Latex stuff
-% #########################################################################################
-% #########################################################################################
-
-\section{Testing Latex stuff}
-\begin{frame}
-\frametitle{\textbf{Testing Latex stuff} }
-
-\[
-    \mathbf{\beta} = 
-    \begin{blockarray}{cccc}
-          & \bar{f_1} & \bar{f_2} & \bar{f_3} \\
-        \begin{block}{c(ccc)}
-          f_1 & 3 & 2 & 0 \\
-          f_2 & 2 & 4 & 2 \\
-          f_3 & 5 & 3 & 1 \\
-        \end{block}
-    \end{blockarray}
-\]
-
-\[
-    \begin{blockarray}{ccccc}
-        & C_1 & C_2 & \dots & C_n \\
-    \begin{block}{c[cccc]}
-    N_1 & a_{11} & a_{12} & \cdots & a_{1n} \bigstrut[t] \\
-    N_2 & a_{21} & a_{22} & \cdots & a_{2n}              \\
-        & \vdots & \vdots & \ddots & \vdots              \\
-    N_n & a_{n1} & a_{n2} & \cdots & a_{nn} \bigstrut[b] \\
-    \end{block}
-    \end{blockarray}\vspace*{-1.25\baselineskip}
-\]
-
-\[
-    \gamma  = 
-    \begin{blockarray}{cccccc}
-        & \bar{f_1} & \bar{f_2} & \dots & \bar{f_n} \\
-    \begin{block}{c[cccc]c}
-    k_1 & 0 & 1  & \cdots & 0\bigstrut[t] & =1 \\
-    k_2 & 1 & 0  & \cdots & 0 & =1 \\
-        & \vdots & \vdots & \ddots & \vdots &\\
-    k_n & 0 & 0  & \cdots & 1\bigstrut[b] & =1\\
-    \end{block}
-        & \leq 4 & \leq 5 & \dots & \leq 10 & \\
-    \end{blockarray}\vspace*{-1.25\baselineskip}
-\]
-
-\end{frame}
 
 % #########################################################################################
 % #########################################################################################
