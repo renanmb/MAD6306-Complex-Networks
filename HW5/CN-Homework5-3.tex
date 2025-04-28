@@ -52,7 +52,9 @@
 \begin{enumerate}
 
 %---------------------------------------------------------------------------------
-
+% ##############################################################################
+% Problem 1
+% ##############################################################################
 \item {\bf These questions will be great preparations for your final project report. You can discuss with your team members but each of you must submit the solutions by yourself.}
 \begin{enumerate}
 \item Introduce the complex network you will report in your final project:
@@ -65,17 +67,70 @@
 
 \vspace{1cm}
 
+\textbf{Answers:}
+
+\begin{enumerate}
+\item What is the name of your network? \vspace{0.2cm}
+
+Power grid: An undirected, unweighted network representing the topology of the Western States Power Grid of the United States. Data compiled by D. Watts and S. Strogatz and made available on the web here. Please cite D. J. Watts and S. H. Strogatz, Nature 393, 440-442 (1998). \vspace{0.2cm}
+
+\item What is the type of the network? Social, biology, information, www, etc? \vspace{0.2cm}
+
+US Western States Power Grid network to generate and transport electricity \vspace{0.2cm}
+
+\item Explain why this network is important. \vspace{0.2cm}
+
+Electricity is extremely important for the maintenance of the current society we have. \vspace{0.2cm}
+
+\item What is the network structure of your network such as node numbers, edge numbers. \vspace{0.2cm}
+
+Nodes: 4941
+
+Edges: 6594
+
+\end{enumerate}
+
+
+\vspace{1cm}
+
 \item 
 For your references, please include a brief summary of the five references you have cited in the midterm report. Why you want to include these references? What is each reference about? Any past research contribution or related work?
 \vspace{1cm}
 
+\textbf{Answers:}
+
+
+
+\vspace{1cm}
+
 \item For your final project, what is the methodology you want to use for this project? Explain why you choose this methodology. Keep in mind, here is about the methodology (such as centrality, community detection method, not the experimental steps or network introduction). 
-\vspace{1cm}
+\vspace{0.5cm}
+
+\textbf{Answers:}
+
+We are paying attention to the connected components, network diameter, average path length and the modularity score. \vspace{0.2cm}
+
+We choose these because the represent the best how the electricity is efficently distributed and it is expected the network to follow small world properties as there are realistic limitations about how far its nodes are from each due to geographical limitations and physical limitations on power generation and transport.
+
+\vspace{0.5cm}
+
 \item Summary what you have learned from this project. Any future work? 
-\vspace{1cm}
+\vspace{0.5cm}
+
+\textbf{Answers:}
+
+I learned that a proper research takes a lot more time, for example that are works that have analysed the impact of cascadng failure with proper models representating the physical limitations of the power grid. \vspace{0.2cm}
+
+Also learned that there is no plan or way to prevent a catasthropic disaster given the right conditions arise and that would mean the collapse of the entire power grid living millions in the dark.
+
+\vspace{0.5cm}
 \end{enumerate}
 
 \clearpage
+
+% ##############################################################################
+% Problem 2
+% ##############################################################################
 
 \item Download the power grid network from Neuman's website or Gephi wiki. You may download it from the assignment page. 
 \begin{enumerate}
@@ -85,12 +140,93 @@ For your references, please include a brief summary of the five references you h
 \item Use the resolution 1.0 for the community detection. How many communities you have? 
 \item Change the resolution to 0.5 and 5.0, how many communities do you  have for each case?
 \end{enumerate}
+\vspace{0.5cm}
+
+\textbf{Answers:} \vspace{0.5cm}
+
+% resolution 1.0 for the community detection. 
+% How many communities you have? 
+% Change the resolution to 0.5 and 5.0
+% how many communities do you  have for each case?
+
+With modularity with resolution 1.0 for the community detection. Could detect 36 Communities. \vspace{0.2cm}
+
+Observation: Gephi outputed Modularity of 0.932 with resolution 0.932 \vspace{0.2cm}
+
+With modularity with resolution 0.5 could detect 58 communities. \vspace{0.2cm}
+
+Observation: Gephi outputed modularity of 0.929 with resolution 0.454 \vspace{0.2cm}
+
+With modularity with resolution 5.0 could detect 14 communities. \vspace{0.2cm}
+ 
+Observation: Gephi outputed modularity of 0.901 with resolution 4.836 \vspace{0.2cm}
+
+Layout 1 - Yifan Hu \vspace{0.5cm}
+
+\centering
+\begin{minipage}{1\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{images/power_layout01_v0.png} % Replace with your image file
+\end{minipage}
+
+\vspace{0.5cm}
+
+Layout 2 - Forced Atlas 2 \vspace{0.5cm}
+
+\centering
+\begin{minipage}{1\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{images/power_layout02_v0.png} % Replace with your image file
+\end{minipage}
+
 \vspace{1cm}
+
+% ##############################################################################
+% Problem 3
+% ##############################################################################
 
 \item  Repeat the same steps in the previous problem on the network from your final project. Make sure to use centrality and communities so that you can show the properties of the network.
 % ----------------------------------------------------------------
 
 \end{enumerate}
+
+\textbf{Answers:} \vspace{0.5cm}
+
+% resolution 1.0 for the community detection. 
+% How many communities you have? 
+% Change the resolution to 0.5 and 5.0
+% how many communities do you  have for each case?
+
+With modularity with resolution 1.0 for the community detection. Could detect 36 Communities. \vspace{0.2cm}
+
+Observation: Gephi outputed Modularity of 0.932 with resolution 0.932 \vspace{0.2cm}
+
+With modularity with resolution 0.5 could detect 58 communities. \vspace{0.2cm}
+
+Observation: Gephi outputed modularity of 0.929 with resolution 0.454 \vspace{0.2cm}
+
+With modularity with resolution 5.0 could detect 14 communities. \vspace{0.2cm}
+ 
+Observation: Gephi outputed modularity of 0.901 with resolution 4.836 \vspace{0.2cm}
+
+
+Layout 1 - Yifan Hu \vspace{0.5cm}
+
+\centering
+\begin{minipage}{1\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{images/power_layout01_v0.png} % Replace with your image file
+\end{minipage}
+
+\vspace{0.5cm}
+
+Layout 2 - Forced Atlas 2 \vspace{0.5cm}
+
+\centering
+\begin{minipage}{1\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{images/power_layout02_v0.png} % Replace with your image file
+\end{minipage}
 
 \end{document}
 % ----------------------------------------------------------------
