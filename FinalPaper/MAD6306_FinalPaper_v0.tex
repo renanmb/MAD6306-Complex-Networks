@@ -45,7 +45,7 @@
 \begin{document}
 
 %%%%%%%%% TITLE - PLEASE UPDATE
-\title{\LaTeX\ Author Guidelines for \confName~Proceedings}
+\title{Power Grid Vulnerability Analysis, A Complex Network Story}
 
 \author{Renan Monteiro Barbosa\\
 University of West Florida\\
@@ -71,11 +71,7 @@ University of West Florida\\
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}
-   The ABSTRACT is to be in fully justified italicized text, at the top of the left-hand column, below the author and affiliation information.
-   Use the word ``Abstract'' as the title, in 12-point Times, boldface type, centered relative to the column, initially capitalized.
-   The abstract is to be in 10-point, single-spaced type.
-   Leave two blank lines after the Abstract, then begin the main text.
-   Look at previous CVPR abstracts to get a feel for style and length.
+    This paper examines the structural vulnerability of power grid infrastructure through the lens of complex network theory. By modeling the grid as a graph, the study employs centrality metrics — specifically Degree and Betweenness Centrality — to identify critical components. Vulnerability is assessed by simulating network disruptions, comparing the impact of random node failures (RND) against targeted attack strategies: Initial Degree (ID), Initial Betweenness (IB), Recalculated Degree (RD), and Recalculated Betweenness (RB). Findings indicate that Betweenness Centrality-based attacks, especially the Recalculated Betweenness (RB) strategy, are markedly more effective at fragmenting the network than degree-based or random removal strategies. This underscores the critical importance of nodes serving as bridges between network regions, which Betweenness Centrality effectively identifies. The research concludes that power grid topology is highly susceptible to targeted attacks on these bridging elements, suggesting that resilience efforts should prioritize the protection of components crucial for maintaining network connectivity. The presented analysis relies significantly on visual interpretation due to technical limitations encountered during the study, which prevented the implementation of more advanced algorithms explored within TIGER.
 \end{abstract}
 
 %%%%%%%%% BODY TEXT
@@ -87,23 +83,81 @@ University of West Florida\\
 \section{Introduction}
 \label{sec:intro}
 
-\textbf{The Criticality and Fragility of Power Grids}
+The potential vulnerabilities of the American power grid for a prolonged collapse have been the focus of several documentaries, movies, Congressional hearings and commissions and they live in the imagination of the public. The electrical power grid vulnerabilities and eventual grid collapse due to geomagnetic storms, electromagnetic pulse, cybersecurity, and cyberattacks as regards power plants and more seem to be more an imminent reality than a Fiction. So to understand more about the topic the intent of this report is to provide an objective summary of the current science and controversies on this issue.
 
-Modern civilization is intrinsically linked to and deeply reliant upon the continuous and reliable supply of electrical power. Power grids function as the operational backbone for nearly all facets of contemporary life, underpinning economic stability, ensuring national security, supporting public health systems, and enabling essential daily activities \cite{number1}(Add a citation number 1). These vast networks are not merely independent entities; they are foundational critical infrastructures upon which other vital systems, such as telecommunications, transportation, water supply, and financial services, depend.(add a citation number 5) The interconnected nature of modern infrastructure means that disruptions within the power grid can cascade, causing widespread societal and economic paralysis.
+%-------------------------------------------------------------------------
+\subsection{The Criticality and Fragility of Power Grids}
+% \textbf{The Criticality and Fragility of Power Grids}
 
-Despite their criticality, power grids exhibit inherent fragility. Historical events serve as stark reminders of the potential consequences of grid failures. Large-scale blackouts, such as the 2021 Texas winter storm event (add a citation number 8) and the 2003 Northeast blackout (add a citation number 10), have left millions without power, often under hazardous conditions. The economic repercussions are staggering, with individual events potentially costing billions of dollars in direct damages and lost productivity.(Add a citation number 1) Beyond economic costs, the human toll is significant. Power outages compromise public health by disabling heating and cooling systems during extreme temperatures, disrupting access to essential medical services, and causing spoilage of food and medication reliant on refrigeration.(Add a citation number 1) The 2021 Texas failure, for instance, not only caused widespread hardship but also brought the entire state grid perilously close—within minutes—to a complete collapse that could have taken weeks or months to restore, highlighting the potential for catastrophic, long-term disruptions.(Add a citation number 8) Similarly, the devastation following Hurricane Maria in Puerto Rico underscored the prolonged societal impact of grid failure, with extended outages contributing to significant excess mortality and immense economic loss.(Add a citation number 10)
+Modern civilization is intrinsically linked to and deeply reliant upon the continuous and reliable supply of electrical power. Power grids function as the operational backbone for nearly all facets of contemporary life, underpinning economic stability, ensuring national security, supporting public health systems, and enabling essential daily activities \cite{number1}. 
+% (Add a citation number 1). 
+These vast networks are not merely independent entities; they are foundational critical infrastructures upon which other vital systems, such as telecommunications, transportation, water supply, and financial services, depend. \cite{ani2019review} 
+% (add a citation number 5) 
+The interconnected nature of modern infrastructure means that disruptions within the power grid can cascade, causing widespread societal and economic paralysis.
 
-\textbf{Escalating Threats and Increasing Complexity}
+Despite their criticality, power grids exhibit inherent fragility. Historical events serve as stark reminders of the potential consequences of grid failures. Large-scale blackouts, such as the 2021 Texas winter storm event \cite{number8} 
+% (add a citation number 8) 
+and the 2003 Northeast blackout \cite{number10}, 
+% (add a citation number 10), 
+have left millions without power, often under hazardous conditions. The economic repercussions are staggering, with individual events potentially costing billions of dollars in direct damages and lost productivity. \cite{number1} 
+% (Add a citation number 1) 
+Beyond economic costs, the human toll is significant. Power outages compromise public health by disabling heating and cooling systems during extreme temperatures, disrupting access to essential medical services, and causing spoilage of food and medication reliant on refrigeration. \cite{number1} 
+% (Add a citation number 1) 
+The 2021 Texas failure, for instance, not only caused widespread hardship but also brought the entire state grid perilously close—within minutes—to a complete collapse that could have taken weeks or months to restore, highlighting the potential for catastrophic, long-term disruptions. \cite{number8} 
+% (Add a citation number 8) 
+Similarly, the devastation following Hurricane Maria in Puerto Rico underscored the prolonged societal impact of grid failure, with extended outages contributing to significant excess mortality and immense economic loss. \cite{number10} 
+% (Add a citation number 10)
 
-The challenges facing power grid reliability are intensifying due to a confluence of escalating threats and growing system complexity. Climate change is driving an increase in the frequency and intensity of extreme weather events, which are a primary cause of power outages.(Add a citation number 9) Hurricanes, severe snow and ice storms, heatwaves, wildfires, and heavy rainfall events place immense physical stress on grid infrastructure, often exceeding the design limits of aging components.(Add a citation number 1) The 2021 Texas freeze (Add a citation number 8) and widespread summer heatwaves straining grids across the US (Add a citation number 10) exemplify this vulnerability. Aging transmission lines, transformers, and substations, many operating beyond their intended lifespans, are less resilient to these weather-related stresses.(Add a citation number 1)
+%-------------------------------------------------------------------------
+\subsection{Escalating Threats and Increasing Complexity}
+% \textbf{Escalating Threats and Increasing Complexity}
 
-Simultaneously, the cyber threat landscape is evolving rapidly. Power grids are increasingly reliant on digital control systems (e.g., SCADA) and interconnected technologies, creating new avenues for malicious actors.(Add a citation number 2) Cyber-attacks targeting grid operations are growing in sophistication and frequency, with state-sponsored actors and criminal groups demonstrating the capability to disrupt or damage grid components.(Add a citation number 9) The integration of renewable energy sources, while beneficial for sustainability, introduces new potential vulnerabilities through distributed energy resources (DERs) like solar inverters and their associated communication networks, which may lack the robust security protocols of traditional, centralized power plants.(Add a citation number 14)
+The challenges facing power grid reliability are intensifying due to a confluence of escalating threats and growing system complexity. Climate change is driving an increase in the frequency and intensity of extreme weather events, which are a primary cause of power outages. \cite{number9} 
+% (Add a citation number 9) 
+Hurricanes, severe snow and ice storms, heatwaves, wildfires, and heavy rainfall events place immense physical stress on grid infrastructure, often exceeding the design limits of aging components. \cite{number1} 
+% (Add a citation number 1) 
+The 2021 Texas freeze \cite{number8} 
+% (Add a citation number 8) 
+and widespread summer heatwaves straining grids across the US \cite{number10} 
+% (Add a citation number 10) 
+exemplify this vulnerability. Aging transmission lines, transformers, and substations, many operating beyond their intended lifespans, are less resilient to these weather-related stresses. \cite{number1} 
+% (Add a citation number 1)
 
-Physical threats also pose a significant and growing risk. Intentional attacks on substations and transmission infrastructure, including acts of sabotage, vandalism, and gunfire, have increased markedly in recent years.(Add a citation number 14) Copper theft from substations remains a persistent problem, causing damage and outages.(Add a citation number 15) Inadequate physical security measures and the vast, often remote, expanse of grid infrastructure make physical protection challenging.(Add a citation number 15)
+% Citation number 2 raising errors \cite{number2}
 
-These threats do not exist in isolation; they can interact and compound, creating scenarios far more damaging than standalone events. Extreme weather, for example, can physically stress the grid while simultaneously creating chaotic conditions that malicious actors might exploit for cyber-attacks, knowing the system is already vulnerable and response capabilities are strained.(Add a citation number 20) Studies simulating such compound cyber-physical threats have shown significantly amplified impacts, with unmet electricity demand potentially tripling compared to a cyber-attack alone.(Add a citation number 20) Furthermore, physical vulnerabilities, such as poorly maintained infrastructure or inadequate site security, can directly enable cyber intrusions by providing physical access to supposedly secure network components.(Add a citation number 15) This interplay necessitates a vulnerability assessment approach that considers the potential synergy between different threat vectors.
+Simultaneously, the cyber threat landscape is evolving rapidly. Power grids are increasingly reliant on digital control systems (e.g., SCADA) and interconnected technologies, creating new avenues for malicious actors. \cite{CraigFields} 
+% (Add a citation number 2) 
+Cyber-attacks targeting grid operations are growing in sophistication and frequency, with state-sponsored actors and criminal groups demonstrating the capability to disrupt or damage grid components. \cite{number9} 
+% (Add a citation number 9) 
+The integration of renewable energy sources, while beneficial for sustainability, introduces new potential vulnerabilities through distributed energy resources (DERs) like solar inverters and their associated communication networks, which may lack the robust security protocols of traditional, centralized power plants. \cite{number14} 
+% (Add a citation number 14)
 
-The inherent complexity of the grid itself magnifies these vulnerabilities. Power systems are vast, interconnected networks spanning large geographical areas, often operated by multiple entities.(Add a citation number 21) This interconnectedness, while providing operational flexibility, also creates pathways for failures to cascade rapidly across the system.(Add a citation number 6) The ongoing energy transition, involving the integration of diverse and often intermittent renewable energy sources and the deployment of smart grid technologies, further increases operational complexity.(Add a citation number 14) While modernization aims to enhance efficiency and control, it paradoxically introduces new types of interdependencies and potential failure points, particularly in the cyber domain.(Add a citation number 2) This suggests a critical trade-off where technological advancements, if not implemented with integrated security and resilience considerations, can inadvertently expand the system's attack surface.
+Physical threats also pose a significant and growing risk. Intentional attacks on substations and transmission infrastructure, including acts of sabotage, vandalism, and gunfire, have increased markedly in recent years. \cite{number14} 
+% (Add a citation number 14) 
+Copper theft from substations remains a persistent problem, causing damage and outages. \cite{number15} 
+% (Add a citation number 15) 
+Inadequate physical security measures and the vast, often remote, expanse of grid infrastructure make physical protection challenging. \cite{number15} 
+% (Add a citation number 15)
+
+These threats do not exist in isolation; they can interact and compound, creating scenarios far more damaging than standalone events. Extreme weather, for example, can physically stress the grid while simultaneously creating chaotic conditions that malicious actors might exploit for cyber-attacks, knowing the system is already vulnerable and response capabilities are strained. \cite{number20} 
+% (Add a citation number 20) 
+Studies simulating such compound cyber-physical threats have shown significantly amplified impacts, with unmet electricity demand potentially tripling compared to a cyber-attack alone.\cite{number20} 
+% (Add a citation number 20) 
+Furthermore, physical vulnerabilities, such as poorly maintained infrastructure or inadequate site security, can directly enable cyber intrusions by providing physical access to supposedly secure network components. \cite{number15} 
+% (Add a citation number 15) 
+This interplay necessitates a vulnerability assessment approach that considers the potential synergy between different threat vectors.
+
+% Citation number 2 raising errors \cite{number2}
+
+The inherent complexity of the grid itself magnifies these vulnerabilities. Power systems are vast, interconnected networks spanning large geographical areas, often operated by multiple entities. 
+% ( Add a citation number 21, definition of power grid. Necessary ??? ) 
+This interconnectedness, while providing operational flexibility, also creates pathways for failures to cascade rapidly across the system. \cite{kelic2017interdependencies} 
+% (Add a citation number 6) 
+The ongoing energy transition, involving the integration of diverse and often intermittent renewable energy sources and the deployment of smart grid technologies, further increases operational complexity. \cite{number14} 
+% (Add a citation number 14) 
+While modernization aims to enhance efficiency and control, it paradoxically introduces new types of interdependencies and potential failure points, particularly in the cyber domain. \cite{CraigFields} 
+% (Add a citation number 2) 
+This suggests a critical trade-off where technological advancements, if not implemented with integrated security and resilience considerations, can inadvertently expand the system's attack surface.
 
 %------------------------------------------------------------------------
 % ##############################################################################
@@ -113,9 +167,28 @@ The inherent complexity of the grid itself magnifies these vulnerabilities. Powe
 \section{Methods}
 \label{sec:methods}
 
-All text must be in a two-column format.
-The total allowable size of the text area is $6\frac78$ inches (17.46 cm) wide by $8\frac78$ inches (22.54 cm) high.
-Columns are to be $3\frac14$ inches (8.25 cm) wide, with a $\frac{5}{16}$ inch (0.8 cm) space between them.
+% The outline for the Methods used in the research
+% Briefly say you used Gephi and Python to study the network.
+% Mention running:
+% Centrality calculations (degree, betweenness, etc.)
+% Community detection (modularity)
+% Explain you removed:
+% Top 10 important nodes (targeted attack)
+% 10 random nodes (random failure)
+
+In this study of graphs we refer as damaging the network as the removal of a node or edge in the graph. There are two primary ways a network can become damaged — (1) natural failure and (2) targeted attack. While random network failures regularly occur, they are typically less severe than targeted attacks. In contrast, targeted attacks carefully select nodes and edges in the network for removal in order to maximally disrupt network functionality. As such, we focus the majority of our attention to targeted attacks.
+
+%------------------------------------------------------------------------
+\subsection{Attack Strategies}
+
+The attack strategies are assessesing the immediate impact of component removals on the network's structure and connectivity, without explicitly modeling power flow dynamics.The node removal strategies rely on node and edge centrality measures to identify candidates. Below, we highlight several attack strategies:
+
+\begin{itemize}
+    \item Random Node Removal (RND) - as the name suggests nodes or edges to be removed are picked at random.
+    \item Initial degree removal (ID) - targets nodes with the highest degree. This has the effect of reducing the total number of edges in the network as fast as possible \cite{holme2002attack, beygelzimer2005improving}. Since this attack only considers its neighbors when making a decision, it is considered a local attack.
+    \item Initial betweenness removal (IB) - targets nodes with high betweenness centrality. This has the effect of destroying as many paths as possible \cite{holme2002attack, beygelzimer2005improving}. Since path information is aggregated from across the network, this is considered a global attack strategy.
+    \item Recalculated degree removal (RD) and Recalculated betweenness removal (RB) - follow the same process as ID and IB, respectively, with one additional step to recalculate the degree (or betweenness) distribution after a node is removed. This recalculation often results in a stronger attack.
+\end{itemize}
 
 
 %------------------------------------------------------------------------
@@ -126,14 +199,52 @@ Columns are to be $3\frac14$ inches (8.25 cm) wide, with a $\frac{5}{16}$ inch (
 \section{Results}
 \label{sec:results}
 
-All text must be in a two-column format.
-The total allowable size of the text area is $6\frac78$ inches (17.46 cm) wide by $8\frac78$ inches (22.54 cm) high.
-Columns are to be $3\frac14$ inches (8.25 cm) wide, with a $\frac{5}{16}$ inch (0.8 cm) space between them.
-The main title (on the first page) should begin 1 inch (2.54 cm) from the top edge of the page.
-The second and following pages should begin 1 inch (2.54 cm) from the top edge.
-On all pages, the bottom margin should be $1\frac{1}{8}$ inches (2.86 cm) from the bottom edge of the page for $8.5 \times 11$-inch paper;
-for A4 paper, approximately $1\frac{5}{8}$ inches (4.13 cm) from the bottom edge of the
-page.
+% The outline for he results:
+% Show what happened when you removed the top 10 nodes:
+% Did the network split?
+% Did the paths between nodes get longer?
+% Show what happened when you removed random nodes:
+% Did the network stay strong?
+% Include a simple before/after comparison table if possible.
+
+Attack success is measured based on how fractured the network becomes when removing nodes from the network. In the process of attacking the network we could identify three key observations — (1)random node removal (RND) is not an effective strategy at all on this network structure; (2) Recalculated Betweenness Removal (RB) is the most effective attack strategy; and (3) the remaining attacks are roughly equivalent, falling somewhere between RND and RB.
+
+We could gain insight into why RB is the most effective of the attacks just by visual observations. If we look carefully, we observe that certain nodes (and edges) in the network act as key bridges between various network regions. As a result, attacks able to identify these bridges are highly effective in disrupting this network. In contrast, degree based attacks are less effective, likely due to balanced degree distribution and being locally limited. The analysis is similar for edge based attacks.
+
+\begin{figure}[t]
+    \centering
+    % \fbox{\rule{0pt}{2in} \rule{0.9\linewidth}{0pt}}
+    \includegraphics[width=0.8\linewidth]{images/PowerGrid_MC-BC2.png}
+    \caption{After removing top 10 Betweenness Centrality.}
+    \label{fig:onecol}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    % \fbox{\rule{0pt}{2in} \rule{0.9\linewidth}{0pt}}
+    \includegraphics[width=0.8\linewidth]{images/PowerGrid_Targeted.png}
+    \caption{Before removing top 10 Betweenness Centrality.}
+    \label{fig:onecol}
+\end{figure}
+
+We can clearly see that Betweenness Centrality is a much more effective attack strategy, as well repeating this process we could observe that recalculating the Betweenness Centrality only compounded the effectiveness. Unfortunately due to python updates, deprecation in several packages and numerical instability with the Tensors. I could not implement a modern implementation of TIGER \cite{freitas2021evaluating}.
+
+
+\begin{figure}[t]
+    \centering
+    % \fbox{\rule{0pt}{2in} \rule{0.9\linewidth}{0pt}}
+    \includegraphics[width=0.8\linewidth]{images/Degree_power-targeted.png}
+    \caption{After removing top 10 Degree Centrality.}
+    \label{fig:onecol}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    % \fbox{\rule{0pt}{2in} \rule{0.9\linewidth}{0pt}}
+    \includegraphics[width=0.8\linewidth]{images/Degree_power.png}
+    \caption{Before removing top 10 Degree Centrality.}
+    \label{fig:onecol}
+\end{figure}
 
 %------------------------------------------------------------------------
 % ##############################################################################
@@ -141,15 +252,15 @@ page.
 % ##############################################################################
 \section{Conclusion}
 
-You must include your signed IEEE copyright release form when you submit your finished paper.
-We MUST have this form before your paper can be published in the proceedings.
+This research outlines the systemic vulnerability of power grid infrastructures. Highlighting the value of modeling the grid as a complex network and employing siple but powerfull attack strategies based on well known network porperties.
 
-Please direct any questions to the production editor in charge of these proceedings at the IEEE Computer Society Press:
-\url{https://www.computer.org/about/contact}.
+We can conclude that we are more close to the total collapse of society than we could expect and through the use of simple tools we could avoid what could become an imminent catastrophe.
 
-\cite{Authors14}
+Also, would like to highlight that due to time contraints and technical difficulties the study was limited to visual observations and intuition rather than a robust implementation of algorithms.
 
-\cite{Alpher02,Alpher03,Alpher05,Authors14b,Authors14}
+% \cite{Authors14}
+
+% \cite{Alpher02,Alpher03,Alpher05,Authors14b,Authors14}
 
 %%%%%%%%% REFERENCES
 {\small
